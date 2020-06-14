@@ -1,0 +1,75 @@
+/* body {
+  background: #24aecd;
+}
+
+.monster {
+  width: 190px;
+  height: 180px;
+  margin: 2% auto;
+  background: url('cat.png') left center;
+  animation: play .8s steps(10) infinite;
+}
+
+@keyframes play {
+    100% { background-position: -1900px; }
+} */
+
+:root {
+    --cat-width: 151px;
+}
+
+body 
+{
+    margin: 0;
+    padding: 0;
+
+}
+
+.bg {
+    position: relative;
+    background:#00fdff url(background.png);
+    height: 100vh;
+    background-size: cover;
+    background-position: 0 0;
+    background-repeat: repeat-x;
+    animation: background-animation 15s linear forwards;
+    animation-delay: 2.5s;
+}
+
+.cat {
+    background: url(cat.png);
+    display: block;
+    position: absolute;
+    width: var(--cat-width);
+    height: 93px;
+    animation: walk-animation 1s steps(12) infinite reverse,
+                slide-animation 2.5s linear forwards;
+    bottom: 8em;
+}
+
+@keyframes background-animation {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 100% 0;
+    }
+}
+
+@keyframes walk-animation {
+    0% {
+        background-position: 0px;
+    }
+    100% {
+        background-position: 1816px;
+    }
+}
+
+@keyframes slide-animation {
+    0% {
+        transform: translateX(-100px);
+    }
+    100% {
+        transform: translateX(calc(50vw - (var(--cat-width) / 2)));
+    }
+}
